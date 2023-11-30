@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal com Header, Body e Footer</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            transition: filter 1.3s ease-in-out;
+        }
+
+        /* Estilo do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        /* Estilo do conteúdo do modal */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            border: 1px solid #888;
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            z-index: 3;
+        }
+
+        /* Header do modal */
+        .modal-header {
+            padding: 10px 20px;
+            background: #fafafa;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Botão de fechar */
+        .close {
+            color: #646464;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            background-color: #e3e3e3;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        /* Body do modal */
+        .modal-body { 
+            padding: 20px;
+        }
+
+        /* Footer do modal */
+        .modal-footer {
+            padding: 10px 20px;
+            background: #fafafa;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            text-align: right;
+        }
+
+        /* Desfoque quando o modal estiver aberto */
+        .blur-content {
+            filter: blur(2px);
+        }
+    </style>
+</head>
+<body>
+
+<div class="content">
+    <!-- Conteúdo da página -->
+    <button id="btnOpenModal">Abrir Modal</button>
+    <!-- Resto do conteúdo da página aqui -->
+</div>
+
+<!-- O Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="modal-title">Título do Modal</span>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <p>Tradutor
+                Google TranslateA
+                O serviço Google, oferecido sem custo financeiro, traduz instantaneamente palavras, expressões e páginas Web entre inglês e mais de 100 outros idiomas.
+                
+                TRADUZA para inglês, espanhol, francês, e muito mais ...
+                Cambridge Dictionary
+                https://dictionary.cambridge.org › translate
+                há 4 dias — Tradutor grátis online aprimorado por definições de dicionários, pronúncias, sinônimos, exemplos e com suporte aos 19 idiomas mais usadas na ...
+                
+                </p>
+        </div>
+        <div class="modal-footer">
+            <button id="btnCloseModal">Fechar</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // Abrir modal
+        $('#btnOpenModal').click(function(){
+            $('#myModal').show();
+            $('.content').addClass('blur-content');
+        });
+
+        // Fechar modal
+        $('.close, #btnCloseModal').click(function(){
+            $('#myModal').hide();
+            $('.content').removeClass('blur-content');
+        });
+    });
+</script>
+
+</body>
+</html>
