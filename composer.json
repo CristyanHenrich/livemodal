@@ -1,0 +1,22 @@
+{
+    "name": "cristyanhenrich/livemodal",
+    "description": "Pacote de modal Livewire para Laravel",
+    "type": "library",
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0",
+        "livewire/livewire": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "cristyanhenrich\\livemodal\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "cristyanhenrich\\livemodal\\ModalServiceProvider"
+            ]
+        }
+    }
+}
