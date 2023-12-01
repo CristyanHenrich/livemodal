@@ -3,9 +3,9 @@
     "description": "Pacote de modal Livewire para Laravel",
     "type": "library",
     "require": {
-        "php": "^7.4|^8.0",
-        "illuminate/support": "^8.0",
-        "livewire/livewire": "^2.0"
+        "php": "^8.0.2",
+        "illuminate/support": "^9.19",
+        "livewire/livewire": "^2.6"
     },
     "autoload": {
         "psr-4": {
