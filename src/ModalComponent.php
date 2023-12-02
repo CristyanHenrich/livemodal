@@ -5,7 +5,7 @@ use Livewire\Component;
 
 class ModalComponent extends Component
 {
-    protected $listeners = ['livemodalShow' => 'openModal'];
+    protected $listeners = ['livemodalShow' => 'openModal', 'livemodalClose' => 'closeModal'];
 
     public $state = 'closed';
 
