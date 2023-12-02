@@ -58,7 +58,17 @@ composer require cristyanhenrich/livemodal
 php artisan vendor:publish --tag=livemodal-assets
 ```
 
-3. Import Scripts and Styles
+3. Add Provider
+
+```php
+'providers' => [
+    // Other Service Providers...
+
+    cristyanhenrich\livemodal\ModalServiceProvider::class,
+],
+```
+
+4. Import Scripts and Styles
 
 ```html
 <html>
