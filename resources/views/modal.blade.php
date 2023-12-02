@@ -13,7 +13,7 @@
                 @endif
             </div>
             <div class="livemodal-footer">
-                <button wire:click="closeModal">Fechar modal</button>
+                <button type="button" class="footer-close-button" wire:click="closeModal">Fechar modal</button>
             </div>
         </div>
     </div>
