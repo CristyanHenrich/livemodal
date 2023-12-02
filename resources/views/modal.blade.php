@@ -12,9 +12,6 @@
                     <span>Componente não encontrado</span>
                 @endif
             </div>
-            <div class="livemodal-footer">
-                <button type="button" class="footer-close-button" wire:click="closeModal">Fechar modal</button>
-            </div>
         </div>
     </div>
 </div>
