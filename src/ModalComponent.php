@@ -1,26 +1,48 @@
 <?php
-namespace App\Http\Livewire;
+namespace cristyanhenrich\livemodal;
 
 use Livewire\Component;
 
 class ModalComponent extends Component
 {
-    public $isOpen = false;
-    public $title;
+    protected $listeners = ['livemodalShow' => 'openModal'];
 
-    public function openModal($title)
+    public $state = 'closed';
+
+    public $title;
+    public $idModal;
+
+    public $component = null;
+    public $model = null;
+    public $params = null;
+
+    public function mount($title, $idModal, $component = null, $model = null, $params = null)
     {
-        $this->isOpen = true;
+        $this->state = 'closed';
         $this->title = $title;
+        $this->idModal = $idModal;
+        $this->component = $component;
+        $this->model = $model;
+        $this->params = $params;
+    }
+
+    public function openModal($title, $idModal, $component = null, $model = null, $params = null)
+    {
+        $this->state = 'opened';
+        $this->title = $title;
+        $this->idModal = $idModal;
+        $this->component = $component;
+        $this->model = $model;
+        $this->params = $params;
     }
 
     public function closeModal()
     {
-        $this->isOpen = false;
+        $this->state = 'closed';
     }
 
     public function render()
     {
-        return view('livewire.modal');
+        return view('modal::modal');
     }
 }
