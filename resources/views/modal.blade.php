@@ -7,7 +7,7 @@
             </div>
             <div class="livemodal-body">
                 @if($component)
-                    @livewire($component, ['model' => $model, 'params' => $params])
+                    @livewire($component, ['action' => $action, 'params' => $params])
                 @else
                     <span>Componente não encontrado</span>
                 @endif
