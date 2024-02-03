@@ -5,7 +5,11 @@ use Livewire\Component;
 
 class ModalComponent extends Component
 {
-    protected $listeners = ['livemodalShow' => 'openModal', 'livemodalClose' => 'closeModal'];
+    protected $listeners = [
+        'livemodalShow' => 'openModal', 
+        'livemodalClose' => 'closeModal',
+        'forceRender' => '$refresh'
+    ];
 
     public $state = 'closed';
 
@@ -29,6 +33,7 @@ class ModalComponent extends Component
 
     public function openModal($title, $idModal, $component = null, $action = null, $params = null)
     {
+        $this->resetState();
         $this->emit('openingModal', $title, $idModal, $component, $action, $params);
         $this->state = 'opened';
         $this->title = $title;
@@ -36,12 +41,24 @@ class ModalComponent extends Component
         $this->component = $component;
         $this->action = $action;
         $this->params = $params;
+
+        $this->emitSelf('forceRender');
     }
 
     public function closeModal()
     {
         $this->emit('closingModal');
         $this->state = 'closed';
+    }
+
+    protected function resetState()
+    {
+        $this->state = 'closed';
+        $this->title = null;
+        $this->idModal = null;
+        $this->component = null;
+        $this->action = null;
+        $this->params = null;
     }
 
     public function render()
