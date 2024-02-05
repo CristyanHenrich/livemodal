@@ -95,8 +95,6 @@ Import the modal and control the modal and its properties using the button, pass
 
 ```html
 <button onclick="livemodalShow('Modal Title', 'modal-id', 'component-livewire-name', 'model', {{ json_encode(['other' => 'informations']) }})">Open</button>
-
-@livewire('modal', ['idModal' => 'modal-id', 'title' => 'Modal Title'])
 ```
 
 ### Creating A Pull Request
