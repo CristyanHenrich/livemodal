@@ -22,7 +22,7 @@ class ModalComponent extends Component
 
     public function mount($title, $idModal, $component = null, $action = null, $params = null)
     {
-        $this->emit('montingModal', $title, $idModal, $component, $action, $params);
+        $this->dispatch('montingModal', $title, $idModal, $component, $action, $params);
         $this->state = 'closed';
         $this->title = $title;
         $this->idModal = $idModal;
@@ -34,7 +34,7 @@ class ModalComponent extends Component
     public function openModal($title, $idModal, $component = null, $action = null, $params = null)
     {
         $this->resetState();
-        $this->emit('openingModal', $title, $idModal, $component, $action, $params);
+        $this->dispatch('openingModal', $title, $idModal, $component, $action, $params);
         $this->state = 'opened';
         $this->title = $title;
         $this->idModal = $idModal;
@@ -42,12 +42,12 @@ class ModalComponent extends Component
         $this->action = $action;
         $this->params = $params;
 
-        $this->emitSelf('forceRender');
+        $this->dispatchSelf('forceRender');
     }
 
     public function closeModal()
     {
-        $this->emit('closingModal');
+        $this->dispatch('closingModal');
         $this->state = 'closed';
     }
 
