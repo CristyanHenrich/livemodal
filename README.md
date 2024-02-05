@@ -83,6 +83,8 @@ php artisan vendor:publish --tag=livemodal-assets
 
     @livemodalScripts
 
+    @livewire('modal', ['idModal' => 'livemodal-modal-id', 'title' => ''])
+
 </body>
 </html>
 ```
