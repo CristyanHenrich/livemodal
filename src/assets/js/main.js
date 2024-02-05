@@ -12,7 +12,7 @@
  */
 function livemodalShow(title, idModal, component, action, params) {
     try {
-        Livewire.dispatch('livemodalShow', title, idModal, component, action, params);
+        Livewire.emit('livemodalShow', title, idModal, component, action, params);
     } catch (error) {
         console.log(error);
     }
